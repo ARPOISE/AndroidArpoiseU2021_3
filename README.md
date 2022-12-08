@@ -1,4 +1,4 @@
-![ARpoise Logo](/Assets/Textures/arpoise_logo_rgb-128.png)
+![ARpoise Logo](/Assets/Images/arpoise_logo_rgb-128.png)
 # *A*ugmented *R*eality *p*oint *o*f *i*nterest *s*ervice *e*nvironment
 
 # AndroidArpoiseU2021_3
