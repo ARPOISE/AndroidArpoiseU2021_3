@@ -1010,6 +1010,12 @@ namespace com.arpoise.arpoiseapp
                 url = url.Replace("www.arpoise.com/AB/", "www.arpoise.com/AB/U2021_3/");
             }
 #endif
+#if AndroidArpoiseU2021_3
+            if (url.Contains("www.arpoise.com/AB/") && !url.Contains("www.arpoise.com/AB/U2021_3/"))
+            {
+                url = url.Replace("www.arpoise.com/AB/", "www.arpoise.com/AB/U2021_3/");
+            }
+#endif
             return url;
         }
 
