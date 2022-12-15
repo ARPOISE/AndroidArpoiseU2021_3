@@ -77,7 +77,11 @@ namespace com.arpoise.arpoiseapp
 #if HAS_AR_KIT
         protected const string AppName = "AR-vos";
 #else
+#if AndroidArvosU2021_3
+        protected const string AppName = "AR-vos";
+#else
         protected const string AppName = "ARpoise";
+#endif
 #endif
 #endif
         protected const float PositionTolerance = 1.25f;
@@ -335,11 +339,11 @@ namespace com.arpoise.arpoiseapp
             //Test mode, set a fixed initial location and forget about the location service
             //
             {
-                InitialHeading = 30;
+                InitialHeading = 0;
                 FilteredLatitude = OriginalLatitude = 48.158f;
                 FilteredLongitude = OriginalLongitude = 11.58f;
 
-                Debug.Log("QUEST_ARPOISE fixed location, lat " + OriginalLatitude + ", lon " + OriginalLongitude);
+                Debug.Log("Fixed location, lat " + OriginalLatitude + ", lon " + OriginalLongitude);
 
                 var second = DateTime.Now.Ticks / 10000000L;
                 var random = new System.Random((int)second);
@@ -482,8 +486,8 @@ namespace com.arpoise.arpoiseapp
                     InitialDeviceOrientation = Input.deviceOrientation;
                 }
 
-                // For the first half second we remember the initial camera heading
-                if (CameraIsInitializing && StartTicks > 0 && DateTime.Now.Ticks > StartTicks + 5000000)
+                // For the first 300 milliseconds we remember the initial camera heading
+                if (CameraIsInitializing && StartTicks > 0 && DateTime.Now.Ticks > StartTicks + 3000000)
                 {
                     CameraIsInitializing = false;
                 }
